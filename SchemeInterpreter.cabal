@@ -1,0 +1,51 @@
+cabal-version:      3.4
+name:               SchemeInterpreter
+version:            0.1.0.0
+synopsis:           A Scheme interpreter written in Haskell
+-- description:
+homepage:           https://github.com/kubisch/SchemeInterpreter
+license:            MIT
+license-file:       LICENSE
+author:             kubisch
+maintainer:         155397681+kubisch@users.noreply.github.com
+-- copyright:
+category:           Language
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+-- extra-source-files:
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:  MyLib
+    -- other-modules:
+    -- other-extensions:
+    build-depends:    base ^>=4.19.0.0
+    hs-source-dirs:   src
+    default-language: GHC2021
+
+executable SchemeInterpreter
+    import:           warnings
+    main-is:          Main.hs
+    -- other-modules:
+    -- other-extensions:
+    build-depends:
+        base ^>=4.19.0.0,
+        SchemeInterpreter
+
+    hs-source-dirs:   app
+    default-language: GHC2021
+
+test-suite SchemeInterpreter-test
+    import:           warnings
+    default-language: GHC2021
+    -- other-modules:
+    -- other-extensions:
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.19.0.0,
+        SchemeInterpreter
